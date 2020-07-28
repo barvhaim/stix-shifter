@@ -25,7 +25,8 @@
       "hashes.SHA-256": ["filehash"],
       "hashes.MD5": ["filehash"],
       "hashes.SHA-1": ["filehash"],
-      "parent_directory_ref": ["filepath"]
+      "parent_directory_ref": ["filepath"],
+      "parent_directory_ref.path": ["filepath"]
     }
   },
   "directory": {
@@ -86,6 +87,72 @@
     "fields": {
       "name": ["crename"],
       "description": ["credescription"]
+    }
+  },
+  "process": {
+    "fields": {
+      "image_ref.name": ["Image"],
+      "image_ref.parent_directory_ref.path": ["Image"],
+      "parent_ref.image_ref.name": ["ParentImage"],
+      "command_line": ["ProcessCommandLine"],
+      "parent_ref.command_line": ["ParentCommandLine"],
+      "extensions.windows-service-ext.service_dll_refs[*].name": ["ServiceFileName", "LoadedImage"]
+    }
+  },
+  "x-event": {
+    "fields": {
+      "id": ["EventID"],
+      "code": ["EventID"],
+      "action": ["qidname"],
+      "original": ["Message"]
+    }
+  },
+  "windows-registry-key": {
+    "fields": {
+      "key": ["TargetObject"],
+      "values[*].data": ["RegistryValueData"],
+      "values[*].name": ["RegistryValueName"]
+
+    }
+  },
+  "x-windows": {
+    "fields": {
+      "initiatedconnection": [
+        "InitiatedConnection"
+      ],
+      "targetimage": [
+        "TargetImage"
+      ],
+      "grantedaccess": [
+        "GrantedAccess"
+      ],
+      "calltrace": [
+        "CallTrace"
+      ],
+      "sourceimage": [
+        "SourceImage"
+      ],
+      "pipename": [
+        "PipeName"
+      ],
+      "startmodule": [
+        "StartModule"
+      ],
+      "startfunction": [
+        "StartFunction"
+      ],
+      "signed": [
+        "Signed"
+      ],
+      "imphash": [
+        "IMPHash"
+      ],
+      "startaddress": [
+        "StartAddress"
+      ],
+      "integritylevel": [
+        "IntegrityLevel"
+      ]
     }
   }
 }

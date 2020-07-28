@@ -330,5 +330,158 @@
     "key": "x_ibm_ariel.device_type",
     "cybox": false,
     "transformer": "ToInteger"
+  },
+
+
+  "Image": [
+    {
+      "key": "file.name",
+      "object": "file_image",
+      "transformer": "ToFileName"
+    },
+    {
+      "key": "directory.path",
+      "object": "directory_image",
+      "transformer": "ToDirectoryPath"
+    },
+    {
+      "key": "process.image_ref",
+      "object": "process_image",
+      "references": "file_image"
+    },
+    {
+      "key": "file.parent_directory_ref",
+      "object": "file_image",
+      "references": "directory_image"
+    }
+  ],
+
+  "ParentImage": [
+    {
+      "key": "file.name",
+      "object": "file_parent_image",
+      "transformer": "ToFileName"
+    },
+    {
+      "key": "directory.path",
+      "object": "directory_parent_image",
+      "transformer": "ToDirectoryPath"
+    },
+    {
+      "key": "file.parent_directory_ref",
+      "object": "file_parent_image",
+      "references": "directory_parent_image"
+    },
+    {
+      "key": "process.image_ref",
+      "object": "parent_process_image",
+      "references": "file_parent_image"
+    },
+    {
+      "key": "process.parent_ref",
+      "object": "process_image",
+      "references": "parent_process_image"
+    }
+  ],
+
+  "ProcessCommandLine": {
+    "key": "process.command_line",
+    "object": "process_image"
+  },
+
+  "ParentCommandLine": [
+    {
+      "key": "process.command_line",
+      "object": "parent_process_image"
+    },
+    {
+      "key": "process.parent_ref",
+      "object": "process_image",
+      "references": "parent_command_line"
+    }
+  ],
+
+  "EventID": [
+    {
+      "key": "x_event.id",
+      "cybox": false
+    },
+    {
+      "key": "x_event.code",
+      "cybox": false
+    }
+  ],
+  "TargetObject": {
+    "key": "windows_registry_key.key",
+    "cybox": false
+  },
+  "RegistryValueData": {
+    "key": "windows_registry_key.values[*].data",
+    "cybox": false
+  },
+  "RegistryValueName": {
+    "key": "windows_registry_key.values[*].name",
+    "cybox": false
+  },
+
+  "InitiatedConnection": {
+    "key": "x_windows.initiatedconnection",
+    "cybox": false
+  },
+  "TargetImage": {
+    "key": "x_windows.targetimage",
+    "cybox": false
+  },
+  "GrantedAccess": {
+    "key": "x_windows.grantedaccess",
+    "cybox": false
+  },
+  "CallTrace": {
+    "key": "x_windows.calltrace",
+    "cybox": false
+  },
+  "SourceImage": {
+    "key": "x_windows.sourceimage",
+    "cybox": false
+  },
+  "PipeName": {
+    "key": "x_windows.pipename",
+    "cybox": false
+  },
+  "StartModule": {
+    "key": "x_windows.startmodule",
+    "cybox": false
+  },
+  "StartFunction": {
+    "key": "x_windows.startfunction",
+    "cybox": false
+  },
+  "Signed": {
+    "key": "x_windows.signed",
+    "cybox": false
+  },
+  "Message": {
+    "key": "x_event.original",
+    "cybox": false
+  },
+  "IMPHash": {
+    "key": "x_windows.imphash",
+    "cybox": false
+  },
+  "StartAddress": {
+    "key": "x_windows.startaddress",
+    "cybox": false
+  },
+  "IntegrityLevel": {
+    "key": "x_windows.integritylevel",
+    "cybox": false
+  },
+  "ServiceFileName": {
+    "key": "process.extensions.windows-service-ext.service_dll_refs[*].name",
+    "cybox": false
+  },
+  "LoadedImage": {
+    "key": "process.extensions.windows-service-ext.service_dll_refs[*].name",
+    "cybox": false
   }
 }
