@@ -115,6 +115,9 @@ class AqlQueryStringPatternTranslator:
             # Comparator originally came in as '=' so it must be changed to INCIDR
             comparator = self.comparator_lookup[ComparisonComparators.IsSubSet]
             return comparator + "(" + value + "," + mapped_field + ")"
+        if (mapped_field == 'sourceip' or mapped_field == 'destinationip') and comparator.upper() == 'LIKE':
+            return "str({mapped_field}) {comparator} {value}".format(
+                mapped_field=mapped_field, comparator=comparator, value=value)
         else:
             return "{mapped_field} {comparator} {value}".format(
                 mapped_field=mapped_field, comparator=comparator, value=value)
@@ -141,6 +144,12 @@ class AqlQueryStringPatternTranslator:
                 comparison_string += "INCIDR(" + value + "," + mapped_field + ")"
             elif expression.object_path == 'artifact:payload_bin' and expression.comparator == ComparisonComparators.Like:
                 comparison_string += "TEXT SEARCH '{}'".format(value)
+            elif (expression.object_path == 'ipv4-addr:value'
+                  or expression.object_path == 'ipv6-addr:value'
+                  or expression.object_path == 'network-traffic:dst_ref.value'
+                  or expression.object_path == 'network-traffic:src_ref.value') \
+                    and expression.comparator == ComparisonComparators.Like:
+                comparison_string += "str({0}) LIKE '{1}'".format(mapped_field, expression.value)
             else:
                 # There's no aql field for domain-name. using Like operator to find domian name from the url
                 if mapped_field == 'domainname' and comparator != ComparisonComparators.Like:
