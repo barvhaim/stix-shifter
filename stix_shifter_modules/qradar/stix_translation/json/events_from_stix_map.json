@@ -109,7 +109,7 @@
   },
   "windows-registry-key": {
     "fields": {
-      "key": ["TargetObject"],
+      "key": ["ObjectName"],
       "values[*].data": ["RegistryValueData"],
       "values[*].name": ["RegistryValueName"]
 
@@ -130,7 +130,7 @@
         "CallTrace"
       ],
       "sourceimage": [
-        "SourceImage"
+        "Image"
       ],
       "pipename": [
         "PipeName"
