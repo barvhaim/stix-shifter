@@ -58,17 +58,18 @@
       "number": [
         {
           "key": "autonomous-system.number",
-          "object": "autonomous-system"
+          "object": "src_as"
         },
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "src_ip",
-          "references": ["autonomous-system"]
+          "references": ["src_as"]
         }
       ],
       "organization": {
         "name" : {
-          "key": "autonomous-system.name"
+          "key": "autonomous-system.name",
+          "object": "src_as"
         }
       }
     },
@@ -182,18 +183,18 @@
       "number": [
         {
           "key": "autonomous-system.number",
-          "object": "autonomous-system"
+          "object": "src_as"
         },
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "src_ip",
-          "references": ["autonomous-system"]
+          "references": ["src_as"]
         }
       ],
       "organization": {
         "name" : {
           "key": "autonomous-system.name",
-          "object": "autonomous-system"
+          "object": "src_as"
         }
       }
     },
@@ -307,17 +308,18 @@
       "number": [
         {
           "key": "autonomous-system.number",
-          "object": "autonomous-system"
+          "object": "dst_as"
         },
         {
           "key": "ipv4-addr.belongs_to_refs",
-          "object": "src_ip",
-          "references": ["autonomous-system"]
+          "object": "dst_ip",
+          "references": ["dst_as"]
         }
       ],
       "organization": {
         "name" : {
-          "key": "autonomous-system.name"
+          "key": "autonomous-system.name",
+          "object": "dst_as"
         }
       }
     },
@@ -431,17 +433,18 @@
       "number": [
         {
           "key": "autonomous-system.number",
-          "object": "autonomous-system"
+          "object": "dst_as"
         },
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "dst_ip",
-          "references": ["autonomous-system"]
+          "references": ["dst_as"]
         }
       ],
       "organization": {
         "name" : {
-          "key": "autonomous-system.name"
+          "key": "autonomous-system.name",
+          "object": "dst_as"
         }
       }
     },
@@ -507,24 +510,45 @@
     }
   },
   "network": {
-    "transport": {
-      "key": "network-traffic.protocols",
-      "object": "nt",
-      "group": "True",
-      "transformer": "ToLowercaseArray"
-    },
-    "type": {
-      "key": "network-traffic.protocols",
-      "object": "nt",
-      "group": "True",
-      "transformer": "ToLowercaseArray"
-    },
-    "protocol": {
-      "key": "network-traffic.protocols",
-      "object": "nt",
-      "group": "True",
-      "transformer": "ToLowercaseArray"
-    },
+    "transport": [
+      {
+        "key": "network-traffic.protocols",
+        "object": "nt",
+        "group": "True",
+        "transformer": "ToLowercaseArray"
+      },
+      {
+        "key": "process.opened_connection_refs",
+        "object": "proc",
+        "references": ["nt"]
+      }
+    ],
+    "type": [
+      {
+        "key": "network-traffic.protocols",
+        "object": "nt",
+        "group": "True",
+        "transformer": "ToLowercaseArray"
+      },
+      {
+        "key": "process.opened_connection_refs",
+        "object": "proc",
+        "references": ["nt"]
+      }
+    ],
+    "protocol": [
+      {
+        "key": "network-traffic.protocols",
+        "object": "nt",
+        "group": "True",
+        "transformer": "ToLowercaseArray"
+      },
+      {
+        "key": "process.opened_connection_refs",
+        "object": "proc",
+        "references": ["nt"]
+      }
+    ],
     "vlan": {
       "id": {
         "key": "x-ecs-network.vlan_id",
@@ -569,10 +593,18 @@
     }
   },
   "event": {
-    "original": {
-      "key": "artifact.payload_bin",
-      "transformer": "ToBase64"
-    },
+    "original": [
+      {
+        "key": "artifact.payload_bin",
+        "object": "event_payload",
+        "transformer": "ToBase64"
+      },
+      {
+        "key": "x-ecs-event.original_ref",
+        "object": "event",
+        "references": "event_payload"
+      }
+    ],
     "action": {
       "key": "x-ecs-event.action",
       "object": "event"
@@ -613,10 +645,17 @@
       "key": "x-ecs-event.ingested",
       "object": "event"
     },
-    "kind": {
-      "key": "x-ecs-event.kind",
-      "object": "event"
-    },
+    "kind": [
+      {
+        "key": "x-ecs-event.kind",
+        "object": "event"
+      },
+      {
+        "key": "process.x_ecs_event_ref",
+        "object": "proc",
+        "references": "event"
+      }
+    ],
     "module": {
       "key": "x-ecs-event.module",
       "object": "event"
@@ -677,23 +716,23 @@
   "process": {
     "start": {
       "key": "process.created",
-      "object": "process"
+      "object": "proc"
     },
     "pid": [
       {
         "key": "process.pid",
-        "object": "process",
+        "object": "proc",
         "transformer": "ToInteger"
       },
       {
-        "key": "process.parent_ref",
-        "object": "process",
-        "references": "process_ppid"
+        "key": "process.child_refs",
+        "object": "pproc",
+        "references": ["proc"]
       }
     ],
     "name": {
       "key": "process.name",
-      "object": "process"
+      "object": "proc"
     },
     "code_signature": {
       "exists": {
@@ -705,11 +744,18 @@
         "object": "x_process"
       }
     },
-    "ppid": {
-      "key": "process.pid",
-      "object": "process_ppid",
-      "transformer": "ToInteger"
-    },
+    "ppid": [
+      {
+        "key": "process.pid",
+        "object": "pproc",
+        "transformer": "ToInteger"
+      },
+      {
+        "key": "process.parent_ref",
+        "object": "proc",
+        "references": "pproc"
+      }
+    ],
     "pe": {
       "company": {
         "key": "x-ecs-process.pe_company",
@@ -733,144 +779,185 @@
       }
     },
     "args": {
-      "key": "x-ecs-process.args",
-      "object": "x_process"
+      "key": "process.arguments",
+      "object": "proc"
     },
     "args_count": {
-      "key": "x-ecs-process.args_count",
-      "object": "x_process"
+      "key": "process.x_ecs_args_count",
+      "object": "proc"
     },
     "command_line": {
       "key": "process.command_line",
-      "object": "process"
+      "object": "proc"
     },
-    "executable": {
-      "key": "x-ecs-process.executable",
-      "object": "x_process"
-    },
+    "executable": [
+      {
+        "key": "file.name",
+        "object": "proc_bin_file",
+        "transformer": "ToFileName"
+      },
+      {
+        "key": "directory.path",
+        "object": "proc_bin_dir",
+        "transformer": "ToDirectoryPath"
+      },
+      {
+        "key": "file.parent_directory_ref",
+        "object": "proc_bin_file",
+        "references": "proc_bin_dir"
+      },
+      {
+        "key": "process.binary_ref",
+        "object": "proc",
+        "references": "proc_bin_file"
+      }
+    ],
     "entity_id": {
-      "key": "x-ecs-process.entity_id",
-      "object": "x_process"
+      "key": "process.x_ecs_entity_id",
+      "object": "proc"
     },
     "exit_code": {
-      "key": "x-ecs-process.exit_code",
-      "object": "x_process"
+      "key": "process.x_ecs_exit_code",
+      "object": "proc"
     },
     "parent": {
       "args": {
-        "key": "x-ecs-process.parent_args",
-        "object": "x_process"
+        "key": "process.arguments",
+        "object": "pproc"
       },
       "args_count": {
-        "key": "x-ecs-process.parent_args_count",
-        "object": "x_process"
+        "key": "process.x_ecs_args_count",
+        "object": "pproc"
       },
       "command_line": {
         "key": "process.command_line",
-        "object": "process_parent"
+        "object": "pproc"
       },
       "entity_id": {
-        "key": "x-ecs-process.parent_entity_id",
-        "object": "x_process"
+        "key": "process.x_ecs_entity_id",
+        "object": "pproc"
       },
       "exit_code": {
-        "key": "x-ecs-process.parent_exit_code",
-        "object": "x_process"
+        "key": "process.x_ecs_exit_code",
+        "object": "pproc"
       },
       "name": {
         "key": "process.name",
-        "object": "process_parent"
+        "object": "pproc"
       },
       "pgid": {
-        "key": "x-ecs-process.parent_pgid",
-        "object": "x_process"
+        "key": "process.e_ecs_pgid",
+        "object": "pproc"
       },
       "pid": [
         {
           "key": "process.pid",
-          "object": "process_parent",
+          "object": "pproc",
           "transformer": "ToInteger"
         },
         {
           "key": "process.parent_ref",
-          "object": "process_parent_ppid",
-          "references": "parent"
-        },
-        {
-          "key": "process.child_refs",
-          "object": "process",
-          "references": "parent"
+          "object": "proc",
+          "references": "pproc"
         }
       ],
       "ppid": {
         "key": "process.pid",
-        "object": "process_parent_ppid",
+        "object": "pproc",
         "transformer": "ToInteger"
       },
       "start": {
         "key": "process.created",
-        "object": "process_parent"
+        "object": "pproc"
       },
       "thread": {
         "id": {
-          "key": "x-ecs-process.parent_thread_id",
-          "object": "x_process"
+          "key": "process.x_ecs_thread_id",
+          "object": "pproc"
         },
         "name": {
-          "key": "x-ecs-process.parent_thread_name",
-          "object": "x_process"
+          "key": "process.x_ecs_thread_name",
+          "object": "pproc"
         }
       },
       "title": {
-        "key": "x-ecs-process.parent_title",
-        "object": "x_process"
+        "key": "process.x_ecs_title",
+        "object": "pproc"
       },
       "uptime": {
-        "key": "x-ecs-process.parent_uptime",
-        "object": "x_process"
+        "key": "process.x_ecs_uptime",
+        "object": "pproc"
       },
       "working_directory": {
-        "key": "x-ecs-process.parent_working_directory",
-        "object": "x_process"
-      }
+        "key": "process.cwd",
+        "object": "pproc"
+      },
+      "executable": [
+        {
+          "key": "file.name",
+          "object": "pproc_bin_file",
+          "transformer": "ToFileName"
+        },
+        {
+          "key": "directory.path",
+          "object": "pproc_bin_dir",
+          "transformer": "ToDirectoryPath"
+        },
+        {
+          "key": "file.parent_directory_ref",
+          "object": "pproc_bin_file",
+          "references": "pproc_bin_dir"
+        },
+        {
+          "key": "process.binary_ref",
+          "object": "pproc",
+          "references": "pproc_bin_file"
+        }
+      ]
     },
     "pgid": {
-      "key": "x-ecs-process.exit_code",
-      "object": "x_process"
+      "key": "process.x_ecs_pgid",
+      "object": "proc"
     },
     "thread": {
       "id": {
-        "key": "x-ecs-process.thread_id",
-        "object": "x_process"
+        "key": "process.x_ecs_thread_id",
+        "object": "proc"
       },
       "name": {
-        "key": "x-ecs-process.thread_name",
-        "object": "x_process"
+        "key": "process.x_ecs_thread_name",
+        "object": "proc"
       }
     },
     "title": {
-      "key": "x-ecs-process.title",
-      "object": "x_process"
+      "key": "process.x_ecs_title",
+      "object": "proc"
     },
     "uptime": {
-      "key": "x-ecs-process.uptime",
-      "object": "x_process"
+      "key": "process.x_ecs_uptime",
+      "object": "proc"
     },
     "working_directory": {
-      "key": "x-ecs-process.working_directory",
-      "object": "x_process"
+      "key": "process.cwd",
+      "object": "proc"
     }
   },
   "user": {
-    "name": [
+    "id": [
       {
         "key": "user-account.user_id",
         "object": "user"
       },
       {
         "key": "process.creator_user_ref",
-        "object": "process",
+        "object": "proc",
         "references": "user"
+      }
+    ],
+    "name": [
+      {
+        "key": "user-account.account_login",
+        "object": "user"
       }
     ],
     "email": [
@@ -906,24 +993,34 @@
         "object": "x_user"
       },
       "id": {
-        "key": "x-ecs-user.group_id",
-        "object": "x_user"
+        "key": "user-account.extensions.unix-account-ext.gid",
+        "object": "user"
       },
       "name": {
-        "key": "x-ecs-user.group_name",
-        "object": "x_user"
+        "key": "user-account.extensions.unix-account-ext.groups",
+        "object": "user",
+        "transformer": "ToLowercaseArray"
       }
     }
   },
   "agent": {
     "name": {
-      "key": "software.name"
+      "key": "software.name",
+      "object": "agent"
     },
-    "type": {
-      "key": "software.vendor"
-    },
+    "type": [
+      {
+        "key": "software.vendor",
+        "object": "agent"
+      },
+      {
+        "key": "software.name",
+        "object": "agent"
+      }
+    ],
     "version": {
-      "key": "software.version"
+      "key": "software.version",
+      "object": "agent"
     }
   },
   "cloud": {
@@ -963,31 +1060,38 @@
     }
   },
   "container": {
-    "id": {
-      "key": "x-ecs-container.id",
-      "object": "container"
-    },
+    "id": [
+      {
+        "key": "x-ecs-container.id",
+        "object": "cont"
+      },
+      {
+        "key": "process.x_ecs_container_ref",
+        "object": "proc",
+        "references": "cont"
+      }
+    ],
     "image": {
       "name": {
         "key": "x-ecs-container.image_name",
-        "object": "container"
+        "object": "cont"
       },
       "tag": {
         "key": "x-ecs-container.image_tag",
-        "object": "container"
+        "object": "cont"
       }
     },
     "labels": {
       "key": "x-ecs-container.labels",
-      "object": "container"
+      "object": "cont"
     },
     "name": {
       "key": "x-ecs-container.name",
-      "object": "container"
+      "object": "cont"
     },
     "runtime": {
       "key": "x-ecs-container.runtime",
-      "object": "container"
+      "object": "cont"
     }
   },
   "dll":{
@@ -1074,8 +1178,8 @@
       }
     },
     "header_flags": {
-        "key": "x-ecs-dns.header_flags",
-        "object": "dns"
+      "key": "x-ecs-dns.header_flags",
+      "object": "dns"
     },
     "id": {
       "key": "x-ecs-dns.id",
@@ -1096,9 +1200,9 @@
           "object": "dns_domain"
         },
         {
-        "key": "x-ecs-dns.question.name_ref",
-        "object": "dns",
-        "references": "dns_domain"
+          "key": "x-ecs-dns.question.name_ref",
+          "object": "dns",
+          "references": "dns_domain"
         }
       ],
       "registered_domain": [
@@ -1107,9 +1211,9 @@
           "object": "dns_registered_domain"
         },
         {
-        "key": "x-ecs-dns.question.registered_domain_ref",
-        "object": "dns",
-        "references": "dns_registered_domain"
+          "key": "x-ecs-dns.question.registered_domain_ref",
+          "object": "dns",
+          "references": "dns_registered_domain"
         }
       ],
       "subdomain": {
@@ -1180,24 +1284,41 @@
       "key": "file.name",
       "object": "file"
     },
+    "path": [
+      {
+        "key": "file.name",
+        "object": "file",
+        "transformer": "ToFileName"
+      },
+      {
+        "key": "directory.path",
+        "object": "directory",
+        "transformer": "ToDirectoryPath"
+      },
+      {
+        "key": "file.parent_directory_ref",
+        "object": "file",
+        "references": "directory"
+      }
+    ],
     "created": {
       "key": "file.created",
       "object": "file"
     },
     "directory": [
       {
-          "key": "directory.path",
-          "object": "directory"
+        "key": "directory.path",
+        "object": "directory"
       },
       {
-          "key": "file.parent_directory_ref",
-          "object": "file",
-          "references": "directory"
+        "key": "file.parent_directory_ref",
+        "object": "file",
+        "references": "directory"
       },
       {
-          "key": "process.binary_ref",
-          "object": "process",
-          "references": "file"
+        "key": "process.binary_ref",
+        "object": "proc",
+        "references": "file"
       }
     ],
     "size": {
@@ -1728,10 +1849,12 @@
   },
   "package": {
     "name": {
-      "key": "software.name"
+      "key": "software.name",
+      "object": "package"
     },
     "version": {
-      "key": "software.version"
+      "key": "software.version",
+      "object": "package"
     }
   },
   "registry": {
