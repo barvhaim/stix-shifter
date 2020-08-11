@@ -40,8 +40,7 @@
     "creeventlist",
     "rulename(creeventlist) as rulenames",
     "domainid",
-    "DOMAINNAME(domainid) as domainname"
-    "domainid",
+    "DOMAINNAME(domainid) as domainname",
     "EventID",
     "Image",
     "ParentImage",
