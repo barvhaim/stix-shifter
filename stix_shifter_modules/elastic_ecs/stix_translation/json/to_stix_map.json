@@ -600,54 +600,54 @@
         "transformer": "ToBase64"
       },
       {
-        "key": "x-ecs-event.original_ref",
+        "key": "x-event.original_ref",
         "object": "event",
         "references": "event_payload"
       }
     ],
     "action": {
-      "key": "x-ecs-event.action",
+      "key": "x-event.action",
       "object": "event"
     },
     "id": {
-      "key": "x-ecs-event.id",
+      "key": "x-event.id",
       "object": "event"
     },
     "category": {
-      "key": "x-ecs-event.category",
+      "key": "x-event.category",
       "object": "event"
     },
     "code": {
-      "key": "x-ecs-event.code",
+      "key": "x-event.code",
       "object": "event"
     },
     "created": {
-      "key": "x-ecs-event.created",
+      "key": "x-event.created",
       "object": "event"
     },
     "dataset": {
-      "key": "x-ecs-event.dataset",
+      "key": "x-event.dataset",
       "object": "event"
     },
     "duration": {
-      "key": "x-ecs-event.duration",
+      "key": "x-event.duration",
       "object": "event"
     },
     "end": {
-      "key": "x-ecs-event.end",
+      "key": "x-event.end",
       "object": "event"
     },
     "hash": {
-      "key": "x-ecs-event.hash",
+      "key": "x-event.hash",
       "object": "event"
     },
     "ingested": {
-      "key": "x-ecs-event.ingested",
+      "key": "x-event.ingested",
       "object": "event"
     },
     "kind": [
       {
-        "key": "x-ecs-event.kind",
+        "key": "x-event.kind",
         "object": "event"
       },
       {
@@ -657,51 +657,51 @@
       }
     ],
     "module": {
-      "key": "x-ecs-event.module",
+      "key": "x-event.module",
       "object": "event"
     },
     "outcome": {
-      "key": "x-ecs-event.outcome",
+      "key": "x-event.outcome",
       "object": "event"
     },
     "provider": {
-      "key": "x-ecs-event.provider",
+      "key": "x-event.provider",
       "object": "event"
     },
     "reference": {
-      "key": "x-ecs-event.reference",
+      "key": "x-event.reference",
       "object": "event"
     },
     "risk_score": {
-      "key": "x-ecs-event.risk_score",
+      "key": "x-event.risk_score",
       "object": "event"
     },
     "risk_score_norm": {
-      "key": "x-ecs-event.risk_score_norm",
+      "key": "x-event.risk_score_norm",
       "object": "event"
     },
     "sequence": {
-      "key": "x-ecs-event.sequence",
+      "key": "x-event.sequence",
       "object": "event"
     },
     "severity": {
-      "key": "x-ecs-event.severity",
+      "key": "x-event.severity",
       "object": "event"
     },
     "start": {
-      "key": "x-ecs-event.start",
+      "key": "x-event.start",
       "object": "event"
     },
     "timezone": {
-      "key": "x-ecs-event.timezone",
+      "key": "x-event.timezone",
       "object": "event"
     },
     "type": {
-      "key": "x-ecs-event.type",
+      "key": "x-event.type",
       "object": "event"
     },
     "url": {
-      "key": "x-ecs-event.url",
+      "key": "x-event.url",
       "object": "event"
     }
   },
