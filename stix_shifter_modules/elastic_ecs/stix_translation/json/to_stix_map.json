@@ -812,6 +812,24 @@
         "references": "proc_bin_file"
       }
     ],
+    "hash": {
+      "sha256": {
+        "key": "file.hashes.SHA-256",
+        "object": "proc_bin_file"
+      },
+      "sha1": {
+        "key": "file.hashes.SHA-1",
+        "object": "proc_bin_file"
+      },
+      "md5": {
+        "key": "file.hashes.MD5",
+        "object": "proc_bin_file"
+      },
+      "sha512": {
+        "key": "file.hashes.SHA-512",
+        "object": "proc_bin_file"
+      }
+    },
     "entity_id": {
       "key": "process.x_ecs_entity_id",
       "object": "proc"
@@ -913,7 +931,25 @@
           "object": "pproc",
           "references": "pproc_bin_file"
         }
-      ]
+      ],
+      "hash": {
+        "sha256": {
+          "key": "file.hashes.SHA-256",
+          "object": "pproc_bin_file"
+        },
+        "sha1": {
+          "key": "file.hashes.SHA-1",
+          "object": "pproc_bin_file"
+        },
+        "md5": {
+          "key": "file.hashes.MD5",
+          "object": "pproc_bin_file"
+        },
+        "sha512": {
+          "key": "file.hashes.SHA-512",
+          "object": "pproc_bin_file"
+        }
+      }
     },
     "pgid": {
       "key": "process.x_ecs_pgid",
