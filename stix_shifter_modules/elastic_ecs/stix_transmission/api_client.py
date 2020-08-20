@@ -88,7 +88,8 @@ class APIClient():
             data = {
                 "_source": {
                     "includes": ["@timestamp", "source.*", "destination.*", "event.*", "client.*", "server.*",
-                                 "host.*","network.*", "process.*", "user.*", "file.*", "url.*"]
+                                 "host.*","network.*", "process.*", "user.*", "file.*", "url.*", "registry.*", "dns.*",
+                                 "powershell.*"]
                 },
                 "query": {
                     "query_string": {
