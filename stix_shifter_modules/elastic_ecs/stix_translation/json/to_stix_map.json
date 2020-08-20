@@ -1896,7 +1896,7 @@
   "registry": {
     "key": {
       "key": "windows-registry-key.key",
-      "object": "registry"
+      "object": "ecs-registry"
     },
     "data": {
       "bytes": {
