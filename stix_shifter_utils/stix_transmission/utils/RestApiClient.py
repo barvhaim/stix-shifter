@@ -16,7 +16,7 @@ class RestApiClient:
     #  True -- do proper signed cert check that is in trust store,
     #  False -- skip all cert checks,
     #  or The String content of your self signed cert required for TLS communication
-    def __init__(self, host, port=None, headers={}, url_modifier_function=None, cert_verify=True,  sni=None):
+    def __init__(self, host, port=None, headers={}, url_modifier_function=None, cert_verify=False,  sni=None):
         self.logger = logger.set_logger(__name__)
         unique_file_handle = uuid.uuid4()
         self.server_cert_name = "/tmp/{0}-server_cert.pem".format(unique_file_handle)
