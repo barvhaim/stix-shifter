@@ -1917,8 +1917,8 @@
       "object": "registry"
     },
     "path": {
-      "key": "x-ecs-registry.path",
-      "object": "registry"
+      "key": "windows-registry-key.key",
+      "object": "ecs-registry"
     },
     "value": {
       "key": "x-ecs-registry.value",
