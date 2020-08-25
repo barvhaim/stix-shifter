@@ -79,7 +79,7 @@ class RestApiClient:
                     session.mount('https://', host_header_ssl.HostHeaderSSLAdapter())
                     actual_headers["Host"] = self.sni
 
-                response = call(url, headers=actual_headers, params=urldata, data=data, verify=self.server_cert_content,
+                response = call(url, headers=actual_headers, params=urldata, data=data, verify=False,
                                 timeout=timeout)
 
                 if 'headers' in dir(response) and isinstance(response.headers, collections.Mapping) and \
