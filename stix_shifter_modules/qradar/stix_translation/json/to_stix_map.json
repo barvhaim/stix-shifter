@@ -28,10 +28,15 @@
     "key": "x_ibm_ariel.identity_host_name",
     "cybox": false
   },
-  "qidname": {
+  "qidname": [{
     "key": "x_ibm_ariel.event_name",
     "cybox": false
   },
+    {
+      "key": "x-event.action",
+      "object": "event"
+    }
+  ],
   "relevance": {
     "key": "x_ibm_ariel.relevance",
     "cybox": false,
@@ -418,12 +423,12 @@
 
   "EventID": [
     {
-      "key": "x_event.id",
-      "cybox": false
+      "key": "x-event.id",
+      "object": "event"
     },
     {
-      "key": "x_event.code",
-      "cybox": false
+      "key": "x-event.code",
+      "object": "event"
     }
   ],
   "TargetObject": {
@@ -475,10 +480,18 @@
     "key": "x_windows.signed",
     "cybox": false
   },
-  "Message": {
-    "key": "x_event.original",
-    "cybox": false
-  },
+  "Message": [
+    {
+      "key": "artifact.payload_bin",
+      "object": "event_payload",
+      "transformer": "ToBase64"
+    },
+    {
+      "key": "x-event.original_ref",
+      "object": "event",
+      "references": "event_payload"
+    }
+  ],
   "IMPHash": {
     "key": "x_windows.imphash",
     "cybox": false
