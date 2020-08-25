@@ -24,14 +24,21 @@
     "key": "x_ibm_ariel.identity_ip",
     "cybox": false
   },
-  "identityhostname": {
-    "key": "x_ibm_ariel.identity_host_name",
-    "cybox": false
-  },
-  "qidname": [{
-    "key": "x_ibm_ariel.event_name",
-    "cybox": false
-  },
+  "identityhostname": [
+    {
+      "key": "x_ibm_ariel.identity_host_name",
+      "cybox": false
+    },
+    {
+      "key": "x-ecs-host.hostname",
+      "object": "host"
+    }
+  ],
+  "qidname": [
+    {
+      "key": "x_ibm_ariel.event_name",
+      "cybox": false
+    },
     {
       "key": "x-event.action",
       "object": "event"
@@ -139,12 +146,16 @@
     {
       "key": "ipv4-addr.resolves_to_refs",
       "object": "src_ip",
-      "references": ["src_mac"]
+      "references": [
+        "src_mac"
+      ]
     },
     {
       "key": "ipv6-addr.resolves_to_refs",
       "object": "src_ip",
-      "references": ["src_mac"]
+      "references": [
+        "src_mac"
+      ]
     }
   ],
   "destinationmac": [
@@ -155,12 +166,16 @@
     {
       "key": "ipv4-addr.resolves_to_refs",
       "object": "dst_ip",
-      "references": ["dst_mac"]
+      "references": [
+        "dst_mac"
+      ]
     },
     {
       "key": "ipv6-addr.resolves_to_refs",
       "object": "dst_ip",
-      "references": ["dst_mac"]
+      "references": [
+        "dst_mac"
+      ]
     }
   ],
   "qid": {
@@ -351,8 +366,6 @@
     "cybox": false,
     "transformer": "ToInteger"
   },
-
-
   "Image": [
     {
       "key": "file.name",
@@ -375,7 +388,6 @@
       "references": "directory_image"
     }
   ],
-
   "ParentImage": [
     {
       "key": "file.name",
@@ -403,12 +415,10 @@
       "references": "parent_process_image"
     }
   ],
-
   "ProcessCommandLine": {
     "key": "process.command_line",
     "object": "process_image"
   },
-
   "ParentCommandLine": [
     {
       "key": "process.command_line",
@@ -420,7 +430,6 @@
       "references": "parent_command_line"
     }
   ],
-
   "EventID": [
     {
       "key": "x-event.id",
@@ -443,7 +452,6 @@
     "key": "windows_registry_key.values[*].name",
     "cybox": false
   },
-
   "InitiatedConnection": {
     "key": "x_windows.initiatedconnection",
     "cybox": false
