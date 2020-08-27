@@ -46,7 +46,7 @@ class Connector(BaseSyncConnector):
     def create_results_connection(self, query, offset, length):
         response_txt = None
         return_obj = dict()
-        length = 10000
+        length = 5000
         try:
             response = self.api_client.run_search(query, offset, length)
             return_obj = self._handle_errors(response, return_obj)
