@@ -38,12 +38,16 @@
       {
         "key": "ipv4-addr.resolves_to_refs",
         "object": "src_ip",
-        "references": ["src_mac"]
+        "references": [
+          "src_mac"
+        ]
       },
       {
         "key": "ipv6-addr.resolves_to_refs",
         "object": "src_ip",
-        "references": ["src_mac"]
+        "references": [
+          "src_mac"
+        ]
       }
     ],
     "bytes": {
@@ -63,11 +67,13 @@
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "src_ip",
-          "references": ["src_as"]
+          "references": [
+            "src_as"
+          ]
         }
       ],
       "organization": {
-        "name" : {
+        "name": {
           "key": "autonomous-system.name",
           "object": "src_as"
         }
@@ -171,12 +177,16 @@
       {
         "key": "ipv4-addr.resolves_to_refs",
         "object": "src_ip",
-        "references": ["src_mac"]
+        "references": [
+          "src_mac"
+        ]
       },
       {
         "key": "ipv6-addr.resolves_to_refs",
         "object": "src_ip",
-        "references": ["src_mac"]
+        "references": [
+          "src_mac"
+        ]
       }
     ],
     "as": {
@@ -188,11 +198,13 @@
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "src_ip",
-          "references": ["src_as"]
+          "references": [
+            "src_as"
+          ]
         }
       ],
       "organization": {
-        "name" : {
+        "name": {
           "key": "autonomous-system.name",
           "object": "src_as"
         }
@@ -288,12 +300,16 @@
       {
         "key": "ipv4-addr.resolves_to_refs",
         "object": "dst_ip",
-        "references": ["dst_mac"]
+        "references": [
+          "dst_mac"
+        ]
       },
       {
         "key": "ipv6-addr.resolves_to_refs",
         "object": "dst_ip",
-        "references": ["dst_mac"]
+        "references": [
+          "dst_mac"
+        ]
       }
     ],
     "bytes": {
@@ -313,11 +329,13 @@
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "dst_ip",
-          "references": ["dst_as"]
+          "references": [
+            "dst_as"
+          ]
         }
       ],
       "organization": {
-        "name" : {
+        "name": {
           "key": "autonomous-system.name",
           "object": "dst_as"
         }
@@ -421,12 +439,16 @@
       {
         "key": "ipv4-addr.resolves_to_refs",
         "object": "dst_ip",
-        "references": ["dst_mac"]
+        "references": [
+          "dst_mac"
+        ]
       },
       {
         "key": "ipv6-addr.resolves_to_refs",
         "object": "dst_ip",
-        "references": ["dst_mac"]
+        "references": [
+          "dst_mac"
+        ]
       }
     ],
     "as": {
@@ -438,11 +460,13 @@
         {
           "key": "ipv4-addr.belongs_to_refs",
           "object": "dst_ip",
-          "references": ["dst_as"]
+          "references": [
+            "dst_as"
+          ]
         }
       ],
       "organization": {
-        "name" : {
+        "name": {
           "key": "autonomous-system.name",
           "object": "dst_as"
         }
@@ -520,7 +544,9 @@
       {
         "key": "process.opened_connection_refs",
         "object": "proc",
-        "references": ["nt"]
+        "references": [
+          "nt"
+        ]
       }
     ],
     "type": [
@@ -533,7 +559,9 @@
       {
         "key": "process.opened_connection_refs",
         "object": "proc",
-        "references": ["nt"]
+        "references": [
+          "nt"
+        ]
       }
     ],
     "protocol": [
@@ -546,7 +574,9 @@
       {
         "key": "process.opened_connection_refs",
         "object": "proc",
-        "references": ["nt"]
+        "references": [
+          "nt"
+        ]
       }
     ],
     "vlan": {
@@ -727,7 +757,9 @@
       {
         "key": "process.child_refs",
         "object": "pproc",
-        "references": ["proc"]
+        "references": [
+          "proc"
+        ]
       }
     ],
     "name": {
@@ -1130,7 +1162,7 @@
       "object": "cont"
     }
   },
-  "dll":{
+  "dll": {
     "name": {
       "key": "x-ecs-dll.name",
       "object": "dll"
@@ -1362,7 +1394,7 @@
       }
     ],
     "size": {
-      "key" : "file.size",
+      "key": "file.size",
       "object": "file",
       "transformer": "ToInteger"
     },
@@ -1894,10 +1926,17 @@
     }
   },
   "registry": {
-    "key": {
-      "key": "windows-registry-key.key",
-      "object": "ecs-registry"
-    },
+    "key": [
+      {
+        "key": "windows-registry-key.key",
+        "object": "ecs-registry"
+      },
+      {
+        "key": "x-event.registry_ref.key",
+        "object": "event",
+        "references": "ecs-registry"
+      }
+    ],
     "data": {
       "bytes": {
         "key": "x-ecs-registry.data_bytes",
