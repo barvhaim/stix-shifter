@@ -683,11 +683,6 @@
       {
         "key": "x-event.kind",
         "object": "event"
-      },
-      {
-        "key": "process.x_ecs_event_ref",
-        "object": "proc",
-        "references": "event"
       }
     ],
     "module": {
@@ -1545,125 +1540,125 @@
   },
   "host": {
     "architecture": {
-      "key": "x-ecs-host.architecture",
+      "key": "x-host.architecture",
       "object": "host"
     },
     "domain": {
-      "key": "x-ecs-host.domain",
+      "key": "x-host.domain",
       "object": "host"
     },
     "hostname": {
-      "key": "x-ecs-host.hostname",
+      "key": "x-host.hostname",
       "object": "host"
     },
     "id": {
-      "key": "x-ecs-host.id",
+      "key": "x-host.id",
       "object": "host"
     },
     "ip": {
-      "key": "x-ecs-host.ip",
+      "key": "x-host.ip",
       "object": "host"
     },
     "mac": {
-      "key": "x-ecs-host.mac",
+      "key": "x-host.mac",
       "object": "host"
     },
     "name": {
-      "key": "x-ecs-host.name",
+      "key": "x-host.name",
       "object": "host"
     },
     "type": {
-      "key": "x-ecs-host.type",
+      "key": "x-host.type",
       "object": "host"
     },
     "uptime": {
-      "key": "x-ecs-host.uptime",
+      "key": "x-host.uptime",
       "object": "host"
     },
     "geo": {
       "city_name": {
-        "key": "x-ecs-host.geo_city_name",
+        "key": "x-host.geo_city_name",
         "object": "host"
       },
       "continent_name": {
-        "key": "x-ecs-host.geo_continent_name",
+        "key": "x-host.geo_continent_name",
         "object": "host"
       },
       "country_iso_code": {
-        "key": "x-ecs-host.geo_country_iso_code",
+        "key": "x-host.geo_country_iso_code",
         "object": "host"
       },
       "country_name": {
-        "key": "x-ecs-host.geo_country_name",
+        "key": "x-host.geo_country_name",
         "object": "host"
       },
       "location": {
-        "key": "x-ecs-host.geo_location",
+        "key": "x-host.geo_location",
         "object": "host"
       },
       "name": {
-        "key": "x-ecs-host.geo_name",
+        "key": "x-host.geo_name",
         "object": "host"
       },
       "region_iso_code": {
-        "key": "x-ecs-host.geo_region_iso_code",
+        "key": "x-host.geo_region_iso_code",
         "object": "host"
       },
       "region_name": {
-        "key": "x-ecs-host.geo_region_name",
+        "key": "x-host.geo_region_name",
         "object": "host"
       }
     },
     "os": {
       "name": {
-        "key": "x-ecs-host.os_name",
+        "key": "x-host.os_name",
         "object": "host"
       },
       "platform": {
-        "key": "x-ecs-host.os_platform",
+        "key": "x-host.os_platform",
         "object": "host"
       },
       "version": {
-        "key": "x-ecs-host.os_version",
+        "key": "x-host.os_version",
         "object": "host"
       }
     },
     "user": {
       "domain": {
-        "key": "x-ecs-host.user_domain",
+        "key": "x-host.user_domain",
         "object": "host"
       },
       "email": {
-        "key": "x-ecs-host.user_email",
+        "key": "x-host.user_email",
         "object": "host"
       },
       "full_name": {
-        "key": "x-ecs-host.user_full_name",
+        "key": "x-host.user_full_name",
         "object": "host"
       },
       "hash": {
-        "key": "x-ecs-host.user_hash",
+        "key": "x-host.user_hash",
         "object": "host"
       },
       "id": {
-        "key": "x-ecs-host.user_id",
+        "key": "x-host.user_id",
         "object": "host"
       },
       "name": {
-        "key": "x-ecs-host.user_name",
+        "key": "x-host.user_name",
         "object": "host"
       },
       "group": {
         "domain": {
-          "key": "x-ecs-host.user_group_domain",
+          "key": "x-host.user_group_domain",
           "object": "host"
         },
         "id": {
-          "key": "x-ecs-host.user_group_id",
+          "key": "x-host.user_group_id",
           "object": "host"
         },
         "name": {
-          "key": "x-ecs-host.user_group_name",
+          "key": "x-host.user_group_name",
           "object": "host"
         }
       }
