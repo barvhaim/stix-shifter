@@ -1932,7 +1932,7 @@
         "object": "ecs-registry"
       },
       {
-        "key": "x-event.registry_ref.key",
+        "key": "x-event.registry_ref",
         "object": "event",
         "references": "ecs-registry"
       }
