@@ -633,6 +633,10 @@
         "key": "x-event.original_ref",
         "object": "event",
         "references": "event_payload"
+      },
+      {
+        "key": "x-event.original",
+        "object": "event"
       }
     ],
     "action": {
@@ -760,6 +764,11 @@
         "references": [
           "proc"
         ]
+      },
+      {
+        "key": "x-event.process_ref",
+        "object": "event",
+        "references": "proc"
       }
     ],
     "name": {
@@ -1348,10 +1357,12 @@
     }
   },
   "file": {
-    "name": {
-      "key": "file.name",
-      "object": "file"
-    },
+    "name": [
+      {
+        "key": "file.name",
+        "object": "file"
+      }
+    ],
     "path": [
       {
         "key": "file.name",
@@ -1367,6 +1378,11 @@
         "key": "file.parent_directory_ref",
         "object": "file",
         "references": "directory"
+      },
+      {
+        "key": "x-event.file_ref",
+        "object": "event",
+        "references": "file"
       },
       {
         "key": "x-ecs-file.path",
