@@ -1526,15 +1526,15 @@
   },
   "group": {
     "domain": {
-      "key": "x-ecs-group.domain",
+      "key": "x-group.domain",
       "object": "group"
     },
     "id": {
-      "key": "x-ecs-group.id",
+      "key": "x-group.id",
       "object": "group"
     },
     "name": {
-      "key": "x-ecs-group.name",
+      "key": "x-group.name",
       "object": "group"
     }
   },

@@ -292,7 +292,7 @@
       "name": ["group.name"]
     }
   },
-  "x-ecs-host": {
+  "x-host": {
     "fields": {
       "architecture": ["host.architecture"],
       "domain": ["host.domain"],
