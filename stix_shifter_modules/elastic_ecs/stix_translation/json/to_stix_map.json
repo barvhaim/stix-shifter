@@ -1585,10 +1585,11 @@
         "unwrap": true
       }
     ],
-    "mac": [{
-      "key": "x-host.mac",
-      "object": "host"
-    },
+    "mac": [
+      {
+        "key": "x-host.mac",
+        "object": "host"
+      },
       {
         "key": "mac-addr.value",
         "object": "host_mac",
