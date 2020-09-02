@@ -1557,10 +1557,6 @@
     },
     "ip": [
       {
-        "key": "x-host.ip",
-        "object": "host"
-      },
-      {
         "key": "ipv4-addr.value",
         "object": "host_ip_addr",
         "unwrap": true
