@@ -1562,16 +1562,19 @@
       },
       {
         "key": "ipv4-addr.value",
-        "object": "host_ip"
+        "object": "host_ip",
+        "unwrap": true
       },
       {
         "key": "ipv6-addr.value",
-        "object": "host_ip"
+        "object": "host_ip",
+        "unwrap": true
       },
       {
-        "key": "x-host.ip_ref",
+        "key": "x-host.ip_refs",
         "object": "host",
-        "references": "host_ip"
+        "references": "host_ip",
+        "unwrap": true
       }
     ],
     "mac": {
