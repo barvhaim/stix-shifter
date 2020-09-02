@@ -1047,10 +1047,17 @@
         "references": "user"
       }
     ],
-    "domain": {
-      "key": "x-ecs-user.domain",
-      "object": "x_user"
-    },
+    "domain": [
+      {
+        "key": "x-ecs-user.domain",
+        "object": "x_user"
+      },
+      {
+        "key": "user-account.account_type",
+        "object": "user",
+        "transformer": "UserDomainToAccountType"
+      }
+    ],
     "full_name": {
       "key": "x-ecs-user.full_name",
       "object": "x_user"

@@ -62,6 +62,16 @@ class FilterIPv6List(ValueTransformer):
         return obj
 
 
+class UserDomainToAccountType(ValueTransformer):
+    @staticmethod
+    def transform(obj):
+        windows_local_values_set = {'nt authority', 'windows manager'}
+        if str(obj).lower() in windows_local_values_set:
+            return 'windows-local'
+        else:
+            return 'windows-domain'  # todo - should this be the default?
+
+
 class EpochToTimestamp(ValueTransformer):
     """A value transformer for the timestamps"""
 
@@ -470,4 +480,4 @@ def get_all_transformers():
             "EpochToGuardium": EpochToGuardium, "AwsToTimestamp": AwsToTimestamp, "GuardiumRep": GuardiumRep,
             "GuardiumQS": GuardiumQS, "GuardiumMapSeverity": GuardiumMapSeverity,
             "GuardiumMapSeverityNum": GuardiumMapSeverityNum, "FilterIPv4List": FilterIPv4List,
-            "FilterIPv6List": FilterIPv6List}
+            "FilterIPv6List": FilterIPv6List, "UserDomainToAccountType": UserDomainToAccountType}
