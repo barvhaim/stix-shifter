@@ -1585,10 +1585,22 @@
         "unwrap": true
       }
     ],
-    "mac": {
+    "mac": [{
       "key": "x-host.mac",
       "object": "host"
     },
+      {
+        "key": "mac-addr.value",
+        "object": "host_mac",
+        "unwrap": true
+      },
+      {
+        "key": "x-host.mac_refs",
+        "object": "host",
+        "references": "host_mac",
+        "unwrap": true
+      }
+    ],
     "name": {
       "key": "x-host.name",
       "object": "host"
