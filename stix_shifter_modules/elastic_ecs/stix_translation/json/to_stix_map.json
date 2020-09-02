@@ -1547,10 +1547,17 @@
       "key": "x-host.domain",
       "object": "host"
     },
-    "hostname": {
-      "key": "x-host.hostname",
-      "object": "host"
-    },
+    "hostname": [
+      {
+        "key": "x-host.hostname",
+        "object": "host"
+      },
+      {
+        "key": "x-event.host_ref",
+        "object": "event",
+        "references": "host"
+      }
+    ],
     "id": {
       "key": "x-host.id",
       "object": "host"
