@@ -1602,10 +1602,17 @@
         "unwrap": true
       }
     ],
-    "name": {
-      "key": "x-host.name",
-      "object": "host"
-    },
+    "name": [
+      {
+        "key": "x-host.name",
+        "object": "host"
+      },
+      {
+        "key": "x-event.host_ref",
+        "object": "event",
+        "references": "host"
+      }
+    ],
     "type": {
       "key": "x-host.type",
       "object": "host"
