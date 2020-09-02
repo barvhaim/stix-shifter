@@ -1555,10 +1555,25 @@
       "key": "x-host.id",
       "object": "host"
     },
-    "ip": {
-      "key": "x-host.ip",
-      "object": "host"
-    },
+    "ip": [
+      {
+        "key": "x-host.ip",
+        "object": "host"
+      },
+      {
+        "key": "ipv4-addr.value",
+        "object": "host_ip"
+      },
+      {
+        "key": "ipv6-addr.value",
+        "object": "host_ip"
+      },
+      {
+        "key": "x-host.ip_ref",
+        "object": "host",
+        "references": "host_ip"
+      }
+    ],
     "mac": {
       "key": "x-host.mac",
       "object": "host"
