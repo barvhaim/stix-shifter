@@ -1557,14 +1557,31 @@
     },
     "ip": [
       {
+        "key": "x-host.ip",
+        "object": "host"
+      },
+      {
         "key": "ipv4-addr.value",
-        "object": "host_ip_addr",
+        "object": "host_ip_addr_v4",
+        "transformer": "FilterIPv4List",
         "unwrap": true
       },
       {
-        "key": "x-host.ip_refs",
+        "key": "ipv6-addr.value",
+        "object": "host_ip_addr_v6",
+        "transformer": "FilterIPv6List",
+        "unwrap": true
+      },
+      {
+        "key": "x-host.ipv4_refs",
         "object": "host",
-        "references": "host_ip_addr",
+        "references": "host_ip_addr_v4",
+        "unwrap": true
+      },
+      {
+        "key": "x-host.ipv6_refs",
+        "object": "host",
+        "references": "host_ip_addr_v6",
         "unwrap": true
       }
     ],
