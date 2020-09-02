@@ -1568,7 +1568,8 @@
       {
         "key": "x-host.ip_refs",
         "object": "host",
-        "references": "host_ip_addr"
+        "references": "host_ip_addr",
+        "unwrap": true
       }
     ],
     "mac": {
