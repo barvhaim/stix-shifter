@@ -1558,19 +1558,17 @@
     "ip": [
       {
         "key": "x-host.ip",
-        "object": "host",
-        "unwrap": true
+        "object": "host"
       },
       {
         "key": "ipv4-addr.value",
-        "object": "host_ip",
+        "object": "host_ip_addr",
         "unwrap": true
       },
       {
         "key": "x-host.ip_refs",
         "object": "host",
-        "references": "host_ip",
-        "unwrap": true
+        "references": "host_ip_addr"
       }
     ],
     "mac": {
