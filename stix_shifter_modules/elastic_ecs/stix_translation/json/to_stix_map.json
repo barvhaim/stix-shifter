@@ -1558,15 +1558,11 @@
     "ip": [
       {
         "key": "x-host.ip",
-        "object": "host"
-      },
-      {
-        "key": "ipv4-addr.value",
-        "object": "host_ip",
+        "object": "host",
         "unwrap": true
       },
       {
-        "key": "ipv6-addr.value",
+        "key": "ipv4-addr.value",
         "object": "host_ip",
         "unwrap": true
       },
