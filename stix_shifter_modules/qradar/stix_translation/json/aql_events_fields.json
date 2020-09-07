@@ -64,6 +64,7 @@
     "LoadedImage",
     "ServiceFileName",
     "\"Registry Key\" as RegistryKey",
-    "ObjectName"
+    "ObjectName",
+    "UrlHost"
   ]
 }

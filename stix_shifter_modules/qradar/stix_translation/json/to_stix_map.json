@@ -228,6 +228,23 @@
       "key": "domain-name.value",
       "object": "domain1",
       "transformer": "ToDomainName"
+    },
+    {
+      "key": "network-traffic.extensions.dns-ext.question.domain_ref",
+      "object": "nt",
+      "references": "domain1"
+    }
+  ],
+  "UrlHost": [
+    {
+      "key": "domain-name.value",
+      "object": "domain1",
+      "transformer": "ToDomainName"
+    },
+    {
+      "key": "network-traffic.extensions.dns-ext.question.domain_ref",
+      "object": "nt",
+      "references": "domain1"
     }
   ],
   "filename": {
