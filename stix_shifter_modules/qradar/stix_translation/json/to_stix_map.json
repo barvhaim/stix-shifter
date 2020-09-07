@@ -110,16 +110,18 @@
     {
       "key": "x_ibm_ariel.log_source_name",
       "cybox": false
+    }
+  ],
+  "logsourcetypename": [
+    {
+      "key": "x_ibm_ariel.log_source_type_name",
+      "cybox": false
     },
     {
       "key": "x-event.provider",
       "object": "event"
     }
   ],
-  "logsourcetypename": {
-    "key": "x_ibm_ariel.log_source_type_name",
-    "cybox": false
-  },
   "direction": {
     "key": "x_ibm_ariel.direction",
     "cybox": false
@@ -405,7 +407,7 @@
       "transformer": "ToDirectoryPath"
     },
     {
-      "key": "process.image_ref",
+      "key": "process.binary_ref",
       "object": "process_image",
       "references": "file_image"
     },
@@ -413,6 +415,11 @@
       "key": "file.parent_directory_ref",
       "object": "file_image",
       "references": "directory_image"
+    },
+    {
+      "key": "x-event.process_ref",
+      "object": "event",
+      "references": "process_image"
     }
   ],
   "ParentImage": [
@@ -432,7 +439,7 @@
       "references": "directory_parent_image"
     },
     {
-      "key": "process.image_ref",
+      "key": "process.binary_ref",
       "object": "parent_process_image",
       "references": "file_parent_image"
     },
@@ -467,17 +474,28 @@
       "object": "event"
     }
   ],
-  "TargetObject": {
-    "key": "windows_registry_key.key",
-    "cybox": false
-  },
   "RegistryValueData": {
-    "key": "windows_registry_key.values[*].data",
-    "cybox": false
+    "key": "windows-registry-key.values[*].data",
+    "object": "reg"
   },
   "RegistryValueName": {
     "key": "windows_registry_key.values[*].name",
-    "cybox": false
+    "object": "reg"
+  },
+  "RegistryKey": [
+    {
+      "key": "windows-registry-key.key",
+      "object": "reg"
+    },
+    {
+      "key": "x-event.registry_ref",
+      "object": "event",
+      "references": "reg"
+    }
+  ],
+  "ObjectName": {
+    "key": "windows-registry-key.key",
+    "object": "reg"
   },
   "InitiatedConnection": {
     "key": "x_windows.initiatedconnection",
