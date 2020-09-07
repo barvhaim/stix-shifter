@@ -1236,42 +1236,42 @@
   "dns": {
     "answers": {
       "class": {
-        "key": "x-ecs-dns.answers_class",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.answers.class",
+        "object": "nt"
       },
       "data": {
-        "key": "x-ecs-dns.answers_data",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.answers.data",
+        "object": "nt"
       },
       "name": {
-        "key": "x-ecs-dns.answers_name",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.answers.name",
+        "object": "nt"
       },
       "ttl": {
-        "key": "x-ecs-dns.answers_ttl",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.answers.ttl",
+        "object": "nt"
       },
       "type": {
-        "key": "x-ecs-dns.answers_type",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.answers.type",
+        "object": "nt"
       }
     },
     "header_flags": {
-      "key": "x-ecs-dns.header_flags",
-      "object": "dns"
+      "key": "network-traffic.extensions.dns-ext.header_flags",
+      "object": "nt"
     },
     "id": {
-      "key": "x-ecs-dns.id",
-      "object": "dns"
+      "key": "network-traffic.extensions.dns-ext.id",
+      "object": "nt"
     },
     "op_code": {
-      "key": "x-ecs-dns.op_code",
-      "object": "dns"
+      "key": "network-traffic.extensions.dns-ext.op_code",
+      "object": "nt"
     },
     "question": {
       "class": {
-        "key": "x-ecs-dns.question.class",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.question.class",
+        "object": "nt"
       },
       "name": [
         {
@@ -1279,8 +1279,8 @@
           "object": "dns_domain"
         },
         {
-          "key": "x-ecs-dns.question.name_ref",
-          "object": "dns",
+          "key": "network-traffic.extensions.dns-ext.question.domain_ref",
+          "object": "nt",
           "references": "dns_domain"
         }
       ],
@@ -1290,22 +1290,14 @@
           "object": "dns_registered_domain"
         },
         {
-          "key": "x-ecs-dns.question.registered_domain_ref",
-          "object": "dns",
+          "key": "network-traffic.extensions.dns-ext.question.reg_domain_ref",
+          "object": "nt",
           "references": "dns_registered_domain"
         }
       ],
-      "subdomain": {
-        "key": "x-ecs-dns.question.subdomain",
-        "object": "dns"
-      },
-      "top_level_domain": {
-        "key": "x-ecs-dns.question.top_level_domain",
-        "object": "dns"
-      },
       "type": {
-        "key": "x-ecs-dns.question.type",
-        "object": "dns"
+        "key": "network-traffic.extensions.dns-ext.question.type",
+        "object": "nt"
       }
     },
     "resolved_ip": [
@@ -1315,19 +1307,19 @@
         "unwrap": true
       },
       {
-        "key": "x-ecs-dns.resolved_ip_refs",
-        "object": "dns",
+        "key": "network-traffic.extensions.dns-ext.resolved_ip_refs",
+        "object": "nt",
         "references": "resolved_ip",
         "unwrap": true
       }
     ],
     "response_code": {
-      "key": "x-ecs-dns.response_code",
-      "object": "dns"
+      "key": "network-traffic.extensions.dns-ext.response_cde",
+      "object": "nt"
     },
     "type": {
-      "key": "x-ecs-dns.type",
-      "object": "dns"
+      "key": "network-traffic.extensions.dns-ext.type",
+      "object": "nt"
     }
   },
   "ecs": {
