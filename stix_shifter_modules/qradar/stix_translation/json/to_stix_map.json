@@ -482,7 +482,7 @@
     "key": "windows-registry-key.values[*].name",
     "object": "reg"
   },
-  "RegistryKey": [
+  "ObjectName": [
     {
       "key": "windows-registry-key.key",
       "object": "reg"
@@ -493,7 +493,7 @@
       "references": "reg"
     }
   ],
-  "ObjectName": {
+  "RegistryKey": {
     "key": "windows-registry-key.key",
     "object": "reg"
   },
