@@ -479,7 +479,7 @@
     "object": "reg"
   },
   "RegistryValueName": {
-    "key": "windows_registry_key.values[*].name",
+    "key": "windows-registry-key.values[*].name",
     "object": "reg"
   },
   "RegistryKey": [
