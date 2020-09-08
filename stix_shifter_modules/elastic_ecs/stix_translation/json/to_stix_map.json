@@ -624,8 +624,8 @@
   },
   "labels": {
     "class": {
-      "key": "x-event.classification",
-      "object": "event"
+      "key": "x-labels.classification",
+      "object": "labels"
     }
   },
   "event": {
