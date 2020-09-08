@@ -2454,5 +2454,12 @@
         "object": "vulnerability"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "key": "x-event.tags",
+      "object": "event",
+      "unwrap": true
+    }
+  ]
 }
