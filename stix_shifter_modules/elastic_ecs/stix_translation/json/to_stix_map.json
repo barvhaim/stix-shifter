@@ -802,6 +802,11 @@
         "key": "x-event.process_ref",
         "object": "event",
         "references": "proc"
+      },
+      {
+        "key": "x-event.parent_process_ref",
+        "object": "event",
+        "references": "pproc"
       }
     ],
     "pe": {
@@ -907,10 +912,17 @@
         "key": "process.x_ecs_args_count",
         "object": "pproc"
       },
-      "command_line": {
-        "key": "process.command_line",
-        "object": "pproc"
-      },
+      "command_line": [
+        {
+          "key": "process.command_line",
+          "object": "pproc"
+        },
+        {
+          "key": "x-event.parent_process_ref",
+          "object": "event",
+          "references": "pproc"
+        }
+      ],
       "entity_id": {
         "key": "process.x_ecs_entity_id",
         "object": "pproc"
@@ -919,10 +931,17 @@
         "key": "process.x_ecs_exit_code",
         "object": "pproc"
       },
-      "name": {
-        "key": "process.name",
-        "object": "pproc"
-      },
+      "name": [
+        {
+          "key": "process.name",
+          "object": "pproc"
+        },
+        {
+          "key": "x-event.parent_process_ref",
+          "object": "event",
+          "references": "pproc"
+        }
+      ],
       "pgid": {
         "key": "process.e_ecs_pgid",
         "object": "pproc"
@@ -942,13 +961,25 @@
           "key": "x-event.process_ref",
           "object": "event",
           "references": "proc"
+        },
+        {
+          "key": "x-event.parent_process_ref",
+          "object": "event",
+          "references": "pproc"
         }
       ],
-      "ppid": {
-        "key": "process.pid",
-        "object": "pproc",
-        "transformer": "ToInteger"
-      },
+      "ppid": [
+        {
+          "key": "process.pid",
+          "object": "pproc",
+          "transformer": "ToInteger"
+        },
+        {
+          "key": "x-event.parent_process_ref",
+          "object": "event",
+          "references": "pproc"
+        }
+      ],
       "start": {
         "key": "process.created",
         "object": "pproc"
@@ -995,6 +1026,11 @@
           "key": "process.binary_ref",
           "object": "pproc",
           "references": "pproc_bin_file"
+        },
+        {
+          "key": "x-event.parent_process_ref",
+          "object": "event",
+          "references": "pproc"
         }
       ],
       "hash": {

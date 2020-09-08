@@ -539,6 +539,11 @@
       "key": "x-event.process_ref",
       "object": "event",
       "references": "process_image"
+    },
+    {
+      "key": "x-event.parent_process_ref",
+      "object": "event",
+      "references": "parent_process_image"
     }
   ],
   "ProcessCommandLine": [
@@ -560,12 +565,17 @@
     {
       "key": "process.parent_ref",
       "object": "process_image",
-      "references": "parent_command_line"
+      "references": "parent_process_image"
     },
     {
       "key": "x-event.process_ref",
       "object": "event",
       "references": "process_image"
+    },
+    {
+      "key": "x-event.parent_process_ref",
+      "object": "event",
+      "references": "parent_process_image"
     }
   ],
   "EventID": [
