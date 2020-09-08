@@ -622,6 +622,12 @@
       "object": "network"
     }
   },
+  "tags": [
+    {
+      "key": "x-event.tags",
+      "object": "event"
+    }
+  ],
   "event": {
     "original": [
       {
@@ -2454,11 +2460,5 @@
         "object": "vulnerability"
       }
     }
-  },
-  "tags": [
-    {
-      "key": "x-event.tags",
-      "object": "event"
-    }
-  ]
+  }
 }
