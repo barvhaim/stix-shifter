@@ -2458,8 +2458,7 @@
   "tags": [
     {
       "key": "x-event.tags",
-      "object": "event",
-      "unwrap": true
+      "object": "event"
     }
   ]
 }
