@@ -210,7 +210,8 @@
       "start": ["event.start"],
       "timezone": ["event.timezone"],
       "type": ["event.type"],
-      "url": ["event.url"]
+      "url": ["event.url"],
+      "tags": ["tags"]
     }
   },
   "x-ecs-cloud": {
