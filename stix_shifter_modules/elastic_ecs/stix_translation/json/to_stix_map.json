@@ -766,10 +766,17 @@
         "references": "proc"
       }
     ],
-    "name": {
-      "key": "process.name",
-      "object": "proc"
-    },
+    "name": [
+      {
+        "key": "process.name",
+        "object": "proc"
+      },
+      {
+        "key": "x-event.process_ref",
+        "object": "event",
+        "references": "proc"
+      }
+    ],
     "code_signature": {
       "exists": {
         "key": "x-ecs-process.code_signature_exists",
@@ -790,6 +797,11 @@
         "key": "process.parent_ref",
         "object": "proc",
         "references": "pproc"
+      },
+      {
+        "key": "x-event.process_ref",
+        "object": "event",
+        "references": "proc"
       }
     ],
     "pe": {
@@ -822,10 +834,17 @@
       "key": "process.x_ecs_args_count",
       "object": "proc"
     },
-    "command_line": {
-      "key": "process.command_line",
-      "object": "proc"
-    },
+    "command_line": [
+      {
+        "key": "process.command_line",
+        "object": "proc"
+      },
+      {
+        "key": "x-event.process_ref",
+        "object": "event",
+        "references": "proc"
+      }
+    ],
     "executable": [
       {
         "key": "file.name",
@@ -846,6 +865,11 @@
         "key": "process.binary_ref",
         "object": "proc",
         "references": "proc_bin_file"
+      },
+      {
+        "key": "x-event.process_ref",
+        "object": "event",
+        "references": "proc"
       }
     ],
     "hash": {
@@ -913,6 +937,11 @@
           "key": "process.parent_ref",
           "object": "proc",
           "references": "pproc"
+        },
+        {
+          "key": "x-event.process_ref",
+          "object": "event",
+          "references": "proc"
         }
       ],
       "ppid": {
@@ -1034,6 +1063,11 @@
       {
         "key": "user-account.account_login",
         "object": "user"
+      },
+      {
+        "key": "process.creator_user_ref",
+        "object": "proc",
+        "references": "user"
       }
     ],
     "email": [
@@ -1056,6 +1090,11 @@
         "key": "user-account.account_type",
         "object": "user",
         "transformer": "UserDomainToAccountType"
+      },
+      {
+        "key": "process.creator_user_ref",
+        "object": "proc",
+        "references": "user"
       }
     ],
     "full_name": {
@@ -1282,6 +1321,11 @@
           "key": "network-traffic.extensions.dns-ext.question.domain_ref",
           "object": "nt",
           "references": "dns_domain"
+        },
+        {
+          "key": "x-event.domain_ref",
+          "object": "event",
+          "references": "dns_domain"
         }
       ],
       "registered_domain": [
@@ -1355,6 +1399,11 @@
       {
         "key": "file.name",
         "object": "file"
+      },
+      {
+        "key": "x-event.file_ref",
+        "object": "event",
+        "references": "file"
       }
     ],
     "path": [
@@ -1567,6 +1616,11 @@
         "object": "host"
       },
       {
+        "key": "x-event.host_ref",
+        "object": "event",
+        "references": "host"
+      },
+      {
         "key": "ipv4-addr.value",
         "object": "host_ip_addr_v4",
         "transformer": "FilterIPv4List",
@@ -1595,6 +1649,11 @@
       {
         "key": "x-host.mac",
         "object": "host"
+      },
+      {
+        "key": "x-event.host_ref",
+        "object": "event",
+        "references": "host"
       },
       {
         "key": "mac-addr.value",
@@ -2018,10 +2077,17 @@
       "key": "x-ecs-registry.hive",
       "object": "registry"
     },
-    "path": {
-      "key": "windows-registry-key.key",
-      "object": "ecs-registry"
-    },
+    "path": [
+      {
+        "key": "windows-registry-key.key",
+        "object": "ecs-registry"
+      },
+      {
+        "key": "x-event.registry_ref",
+        "object": "event",
+        "references": "ecs-registry"
+      }
+    ],
     "value": {
       "key": "x-ecs-registry.value",
       "object": "registry"
