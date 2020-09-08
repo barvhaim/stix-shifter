@@ -1612,15 +1612,6 @@
     },
     "ip": [
       {
-        "key": "x-host.ip",
-        "object": "host"
-      },
-      {
-        "key": "x-event.host_ref",
-        "object": "event",
-        "references": "host"
-      },
-      {
         "key": "ipv4-addr.value",
         "object": "host_ip_addr_v4",
         "transformer": "FilterIPv4List",
@@ -1643,18 +1634,14 @@
         "object": "host",
         "references": "host_ip_addr_v6",
         "unwrap": true
-      }
-    ],
-    "mac": [
-      {
-        "key": "x-host.mac",
-        "object": "host"
       },
       {
         "key": "x-event.host_ref",
         "object": "event",
         "references": "host"
-      },
+      }
+    ],
+    "mac": [
       {
         "key": "mac-addr.value",
         "object": "host_mac",
@@ -1665,6 +1652,11 @@
         "object": "host",
         "references": "host_mac",
         "unwrap": true
+      },
+      {
+        "key": "x-event.host_ref",
+        "object": "event",
+        "references": "host"
       }
     ],
     "name": [

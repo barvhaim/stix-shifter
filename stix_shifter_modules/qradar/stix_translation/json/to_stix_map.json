@@ -34,10 +34,39 @@
     "cybox": false,
     "transformer": "ToInteger"
   },
-  "identityip": {
-    "key": "x_ibm_ariel.identity_ip",
-    "cybox": false
-  },
+  "identityip": [
+    {
+      "key": "x_ibm_ariel.identity_ip",
+      "cybox": false
+    },
+    {
+      "key": "ipv4-addr.value",
+      "object": "host_ip_addr_v4"
+    },
+    {
+      "key": "ipv6-addr.value",
+      "object": "host_ip_addr_v6"
+    },
+    {
+      "key": "x-host.ipv4_refs",
+      "object": "host",
+      "references": [
+        "host_ip_addr_v4"
+      ]
+    },
+    {
+      "key": "x-host.ipv6_refs",
+      "object": "host",
+      "references": [
+        "host_ip_addr_v6"
+      ]
+    },
+    {
+      "key": "x-event.host_ref",
+      "object": "event",
+      "references": "host"
+    }
+  ],
   "identityhostname": [
     {
       "key": "x_ibm_ariel.identity_host_name",
@@ -189,6 +218,13 @@
     {
       "key": "ipv6-addr.resolves_to_refs",
       "object": "src_ip",
+      "references": [
+        "src_mac"
+      ]
+    },
+    {
+      "key": "x-host.mac_refs",
+      "object": "host",
       "references": [
         "src_mac"
       ]
