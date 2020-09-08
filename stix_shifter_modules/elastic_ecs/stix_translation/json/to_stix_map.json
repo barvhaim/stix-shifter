@@ -622,12 +622,6 @@
       "object": "network"
     }
   },
-  "labels": {
-    "class": {
-      "key": "x-labels.classification",
-      "object": "labels"
-    }
-  },
   "event": {
     "original": [
       {
@@ -737,6 +731,10 @@
     },
     "url": {
       "key": "x-event.url",
+      "object": "event"
+    },
+    "label": {
+      "key": "x-event.label",
       "object": "event"
     }
   },
