@@ -211,7 +211,7 @@
       "timezone": ["event.timezone"],
       "type": ["event.type"],
       "url": ["event.url"],
-      "tags": ["tags"]
+      "classification": ["labels.class"]
     }
   },
   "x-ecs-cloud": {

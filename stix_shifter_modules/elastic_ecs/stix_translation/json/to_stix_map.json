@@ -622,12 +622,12 @@
       "object": "network"
     }
   },
-  "tags": [
-    {
-      "key": "x-event.tags",
+  "labels": {
+    "class": {
+      "key": "x-event.classification",
       "object": "event"
     }
-  ],
+  },
   "event": {
     "original": [
       {
