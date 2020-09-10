@@ -527,7 +527,7 @@
   "x-powershell": {
     "fields": {
       "command.value": ["powershell.command.value"],
-      "file.script_block_text": ["x-powershell.file.script_block_text"]
+      "file.script_block_text": ["powershell.file.script_block_text"]
     }
   }
 }
