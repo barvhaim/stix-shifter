@@ -2458,5 +2458,33 @@
         "object": "vulnerability"
       }
     }
+  },
+  "powershell": {
+    "command": {
+      "value": [
+        {
+          "key": "x-powershell.command.value",
+          "object": "powershell"
+        },
+        {
+          "key": "x-event.powershell_ref",
+          "object": "event",
+          "references": "powershell"
+        }
+      ]
+    },
+    "file": {
+      "script_block_text": [
+        {
+          "key": "x-powershell.file.script_block_text",
+          "object": "powershell"
+        },
+        {
+          "key": "x-event.powershell_ref",
+          "object": "event",
+          "references": "powershell"
+        }
+      ]
+    }
   }
 }
