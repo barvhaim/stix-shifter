@@ -732,10 +732,6 @@
     "url": {
       "key": "x-event.url",
       "object": "event"
-    },
-    "label": {
-      "key": "x-event.label",
-      "object": "event"
     }
   },
   "url": {
