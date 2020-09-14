@@ -211,7 +211,7 @@
       "timezone": ["event.timezone"],
       "type": ["event.type"],
       "url": ["event.url"],
-      "original": ["message"]
+      "original": ["message", "powershell.file.script_block_text"]
     }
   },
   "x-ecs-cloud": {
