@@ -2494,6 +2494,19 @@
           "references": "powershell"
         }
       ]
+    },
+    "process": {
+      "executable_version": [
+        {
+          "key": "x-powershell.process.executable_version",
+          "object": "powershell"
+        },
+        {
+          "key": "x-event.powershell_ref",
+          "object": "event",
+          "references": "powershell"
+        }
+      ]
     }
   }
 }
