@@ -2481,6 +2481,19 @@
           "references": "powershell"
         }
       ]
+    },
+    "engine": {
+      "version": [
+        {
+          "key": "x-powershell.engine.version",
+          "object": "powershell"
+        },
+        {
+          "key": "x-event.powershell_ref",
+          "object": "event",
+          "references": "powershell"
+        }
+      ]
     }
   }
 }
