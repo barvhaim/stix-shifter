@@ -109,7 +109,7 @@
   },
   "process" : {
     "fields": {
-      "command_line": ["process.command_line"],
+      "command_line": ["process.command_line", "powershell.command.value"],
       "created": ["process.start"],
       "pid": ["process.pid", "process.ppid", "process.parent.pid", "process.parent.ppid"],
       "name": ["process.name", "process.parent.name"],
@@ -210,7 +210,8 @@
       "start": ["event.start"],
       "timezone": ["event.timezone"],
       "type": ["event.type"],
-      "url": ["event.url"]
+      "url": ["event.url"],
+      "original": ["message"]
     }
   },
   "x-ecs-cloud": {
