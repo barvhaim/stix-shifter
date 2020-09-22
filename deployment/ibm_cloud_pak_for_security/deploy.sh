@@ -26,19 +26,19 @@ fi
 
 if [ -f cert.key ] && [ -f cert.pem ]; then
   echo "Install cryptography for cert signing"
-  pip3 install cryptography pyopenssl
+  pip install cryptography pyopenssl
 fi
 
 cd $SS_HOME
 if [ ! -f "requirements.txt" ]; then
-  python3 generate_requirements.py
+  python generate_requirements.py
 fi
 
-pip3 install virtualenv
-pip3 install venv-run
+pip install virtualenv
+pip install venv-run
 
 
-virtualenv -p python3 virtualenv
+virtualenv -p python virtualenv
 
 venv-run pip install -r requirements.txt
 venv-run pip install setuptools wheel twine
