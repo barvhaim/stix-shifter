@@ -11,7 +11,7 @@
   },
   "url": {
     "fields": {
-      "value": ["url"]
+      "value": ["url", "UrlHost"]
     }
   },
   "mac-addr": {
@@ -25,7 +25,8 @@
       "hashes.SHA-256": ["filehash"],
       "hashes.MD5": ["filehash"],
       "hashes.SHA-1": ["filehash"],
-      "parent_directory_ref": ["filepath"]
+      "parent_directory_ref": ["filepath"],
+      "parent_directory_ref.path": ["filepath"]
     }
   },
   "directory": {
@@ -86,6 +87,82 @@
     "fields": {
       "name": ["crename"],
       "description": ["credescription"]
+    }
+  },
+  "process": {
+    "fields": {
+      "binary_ref.name": ["Image"],
+      "binary_ref.parent_directory_ref.path": ["Image"],
+      "parent_ref.binary_ref.name": ["ParentImage"],
+      "command_line": ["ProcessCommandLine"],
+      "parent_ref.command_line": ["ParentCommandLine"],
+      "extensions.windows-service-ext.service_dll_refs[*].name": ["ServiceFileName", "LoadedImage"]
+    }
+  },
+  "x-event": {
+    "fields": {
+      "id": ["EventID"],
+      "code": ["EventID"],
+      "action": ["qidname"],
+      "original": ["Message"],
+      "process_ref.command_line": ["ProcessCommandLine"],
+      "process_ref.binary_ref.name": ["Image"],
+      "process_ref.parent_ref.command_line": ["ParentCommandLine"],
+      "process_ref.creator_user_ref.user_id": ["username"],
+      "parent_process_ref.command_line": ["ParentCommandLine"],
+      "domain_ref.value": ["UrlHost", "domainname"],
+      "file_ref.name": ["filename"],
+      "host_ref.hostname": ["identityhostname"],
+      "host_ref.name": ["identityhostname"],
+      "registry_ref.key": ["ObjectName"]
+    }
+  },
+  "windows-registry-key": {
+    "fields": {
+      "key": ["ObjectName"],
+      "values[*].data": ["RegistryValueData"],
+      "values[*].name": ["RegistryValueName"]
+
+    }
+  },
+  "x-windows": {
+    "fields": {
+      "initiatedconnection": [
+        "InitiatedConnection"
+      ],
+      "targetimage": [
+        "TargetImage"
+      ],
+      "grantedaccess": [
+        "GrantedAccess"
+      ],
+      "calltrace": [
+        "CallTrace"
+      ],
+      "sourceimage": [
+        "Image"
+      ],
+      "pipename": [
+        "PipeName"
+      ],
+      "startmodule": [
+        "StartModule"
+      ],
+      "startfunction": [
+        "StartFunction"
+      ],
+      "signed": [
+        "Signed"
+      ],
+      "imphash": [
+        "IMPHash"
+      ],
+      "startaddress": [
+        "StartAddress"
+      ],
+      "integritylevel": [
+        "IntegrityLevel"
+      ]
     }
   }
 }
