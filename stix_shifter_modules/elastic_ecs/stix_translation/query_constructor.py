@@ -49,8 +49,8 @@ class QueryStringPatternTranslator:
 
     @staticmethod
     def _format_equality(value) -> str:
-
-        return '"{}"'.format(value)
+        escaped_value = QueryStringPatternTranslator._escape_value(value)
+        return '"{}"'.format(escaped_value)
 
     @staticmethod
     def _format_like(value) -> str:
