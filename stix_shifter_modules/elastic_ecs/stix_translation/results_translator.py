@@ -1,6 +1,7 @@
 from stix_shifter_utils.modules.base.stix_translation.base_results_translator import BaseResultTranslator
 from stix_shifter_utils.stix_translation.src.json_to_stix.json_to_stix import json_to_stix_translator
 from stix_shifter_utils.stix_translation.src.utils import transformers
+from stix_shifter_modules.elastic_ecs.stix_translation import transformers as local_transformers
 from os import path
 import json
 
@@ -25,8 +26,11 @@ class ResultTranslator(BaseResultTranslator):
         json_data = json.loads(data)
         data_source = json.loads(data_source)
 
+        all_transformers = transformers.get_all_transformers()
+        all_transformers.update(local_transformers.get_all_transformers())
+
         results = json_to_stix_translator.convert_to_stix(data_source, self.map_data, json_data,
-                                                          transformers.get_all_transformers(), self.options)
+                                                          all_transformers, self.options)
 
         if len(results['objects']) - 1 == len(json_data):
             for i in range(1, len(results['objects'])):

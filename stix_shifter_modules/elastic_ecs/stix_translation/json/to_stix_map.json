@@ -1121,6 +1121,16 @@
       {
         "key": "x-ecs-user.domain",
         "object": "x_user"
+      },
+      {
+        "key": "user-account.account_type",
+        "object": "user",
+        "transformer": "UserDomainToAccountType"
+      },
+      {
+        "key": "process.creator_user_ref",
+        "object": "proc",
+        "references": "user"
       }
     ],
     "full_name": {
@@ -1640,11 +1650,13 @@
       {
         "key": "ipv4-addr.value",
         "object": "host_ip_addr_v4",
+        "transformer": "FilterIPv4List",
         "unwrap": true
       },
       {
         "key": "ipv6-addr.value",
         "object": "host_ip_addr_v6",
+        "transformer": "FilterIPv6List",
         "unwrap": true
       },
       {
