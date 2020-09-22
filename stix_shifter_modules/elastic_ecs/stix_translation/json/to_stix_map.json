@@ -1101,6 +1101,10 @@
         "object": "user"
       },
       {
+        "key": "user-account.user_id",
+        "object": "user"
+      },
+      {
         "key": "process.creator_user_ref",
         "object": "proc",
         "references": "user"
