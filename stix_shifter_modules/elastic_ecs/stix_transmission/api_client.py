@@ -22,7 +22,7 @@ class APIClient():
             self.indices = ",".join(self.indices)
 
         if self.indices:
-            self.endpoint = self.indices + '/' +'_search'
+            self.endpoint = self.indices + '/' + '_search'
         else:
             self.endpoint = '_search'
 
@@ -43,11 +43,11 @@ class APIClient():
                                     cert_verify=connection.get('selfSignedCert', True),
                                     sni=connection.get('sni', None)
                                     )
-        
+
         self.search_timeout = connection['options'].get('timeout')
 
     def ping_box(self):
-        return self.client.call_api(self.PING_ENDPOINT, 'GET',timeout=self.PING_TIMEOUT_IN_SECONDS)
+        return self.client.call_api(self.PING_ENDPOINT, 'GET', timeout=self.PING_TIMEOUT_IN_SECONDS)
 
     def run_search(self, query_expression, offset=None, length=DEFAULT_LIMIT):
         headers = dict()
@@ -88,11 +88,12 @@ class APIClient():
             data = {
                 "_source": {
                     "includes": ["@timestamp", "source.*", "destination.*", "event.*", "client.*", "server.*",
-                                 "host.*","network.*", "process.*", "user.*", "file.*", "url.*"]
+                                 "host.*", "network.*", "process.*", "user.*", "file.*", "url.*", "registry.*", "dns.*",
+                                 "powershell.*"]
                 },
                 "query": {
                     "query_string": {
-                      "query": query_expression
+                        "query": query_expression
                     }
                 }
             }
