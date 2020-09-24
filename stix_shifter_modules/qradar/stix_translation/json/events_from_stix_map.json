@@ -117,6 +117,12 @@
       "registry_ref.key": ["ObjectName"]
     }
   },
+  "x-host": {
+    "fields": {
+      "hostname": ["identityhostname"],
+      "name": ["identityhostname"]
+    }
+  },
   "windows-registry-key": {
     "fields": {
       "key": ["ObjectName"],
